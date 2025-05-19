@@ -32,26 +32,31 @@ const Navbar: React.FC<NavbarProps> = ({ toggleTheme, isDarkTheme }) => {
     { name: 'Services', href: '#services' },
     { name: 'About', href: '#about' },
     { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Stats', href: '#stats' },
+    { name: 'Portfolio', href: '#portfolio' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
     <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-techguru-purple-dark/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        scrolled 
+          ? 'bg-techguru-purple-dark/70 backdrop-blur-xl border-b border-techguru-blue/10 shadow-lg shadow-techguru-blue/5' 
+          : 'bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="#home" className="flex items-center">
-              <img 
-                src="/lovable-uploads/5ff34453-7603-4fd0-88ba-c12a1c31757c.png" 
-                alt="TechGuru Logo" 
-                className="h-10 w-10 mr-3" 
-              />
-              <span className="text-2xl font-bold text-white">TechGuru</span>
+            <a href="#home" className="flex items-center group">
+              <div className="relative">
+                <div className={`absolute -inset-1 rounded-full bg-gradient-to-r from-techguru-blue to-techguru-purple-light blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300 ${scrolled ? 'animate-pulse-slow' : ''}`}></div>
+                <img 
+                  src="/lovable-uploads/5ff34453-7603-4fd0-88ba-c12a1c31757c.png" 
+                  alt="TechGuru Logo" 
+                  className="h-10 w-10 mr-3 relative z-10" 
+                />
+              </div>
+              <span className="text-2xl font-bold text-white font-montserrat">TechGuru</span>
             </a>
           </div>
 
@@ -60,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleTheme, isDarkTheme }) => {
               <div className="flex items-center gap-4">
                 <button 
                   onClick={toggleTheme} 
-                  className="p-2 rounded-full hover:bg-techguru-purple-light/20"
+                  className="p-2 rounded-full hover:bg-techguru-purple-light/20 transition-colors"
                   aria-label={isDarkTheme ? "Switch to light mode" : "Switch to dark mode"}
                 >
                   {isDarkTheme ? (
@@ -74,13 +79,13 @@ const Navbar: React.FC<NavbarProps> = ({ toggleTheme, isDarkTheme }) => {
                   className="text-white focus:outline-none"
                   aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
                 >
-                  <div className={`w-6 h-0.5 bg-white mb-1.5 transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-                  <div className={`w-6 h-0.5 bg-white mb-1.5 transition-all ${mobileMenuOpen ? 'opacity-0' : ''}`}></div>
-                  <div className={`w-6 h-0.5 bg-white transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+                  <div className={`w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+                  <div className={`w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`}></div>
+                  <div className={`w-6 h-0.5 bg-white transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
                 </button>
               </div>
               {mobileMenuOpen && (
-                <div className="absolute top-full left-0 right-0 bg-techguru-purple-dark/95 backdrop-blur-lg shadow-xl animate-slide-up">
+                <div className="absolute top-full left-0 right-0 bg-techguru-purple-dark/95 backdrop-blur-xl shadow-xl animate-slide-up">
                   <div className="container mx-auto px-6 py-4 space-y-4">
                     {navLinks.map((link) => (
                       <a
@@ -92,7 +97,10 @@ const Navbar: React.FC<NavbarProps> = ({ toggleTheme, isDarkTheme }) => {
                         {link.name}
                       </a>
                     ))}
-                    <Button className="btn-neon w-full">Get Started</Button>
+                    <Button className="btn-neon w-full relative group overflow-hidden">
+                      <span className="absolute inset-0 bg-gradient-to-r from-techguru-blue to-techguru-purple-light opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
+                      <span className="relative z-10">Get Started</span>
+                    </Button>
                   </div>
                 </div>
               )}
@@ -113,7 +121,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleTheme, isDarkTheme }) => {
               <div className="flex items-center space-x-4">
                 <button 
                   onClick={toggleTheme} 
-                  className="p-2 rounded-full hover:bg-techguru-purple-light/20"
+                  className="p-2 rounded-full hover:bg-techguru-purple-light/20 transition-colors duration-300"
                   aria-label={isDarkTheme ? "Switch to light mode" : "Switch to dark mode"}
                 >
                   {isDarkTheme ? (
@@ -122,7 +130,10 @@ const Navbar: React.FC<NavbarProps> = ({ toggleTheme, isDarkTheme }) => {
                     <Moon className="h-5 w-5 text-techguru-purple-light" />
                   )}
                 </button>
-                <Button className="btn-neon">Get Started</Button>
+                <Button className="btn-neon relative group overflow-hidden">
+                  <span className="absolute inset-0 bg-gradient-to-r from-techguru-blue to-techguru-purple-light opacity-0 group-hover:opacity-30 transition-opacity duration-300"></span>
+                  <span className="relative z-10">Get Started</span>
+                </Button>
               </div>
             </>
           )}

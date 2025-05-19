@@ -7,6 +7,7 @@ import StatsSection from '../components/StatsSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import AboutSection from '../components/AboutSection';
 import ContactSection from '../components/ContactSection';
+import PortfolioSection from '../components/PortfolioSection';
 import Footer from '../components/Footer';
 import ChatBot from '../components/ChatBot';
 import SplashScreen from '../components/SplashScreen';
@@ -47,6 +48,7 @@ const Index = () => {
       <ServicesSection />
       <AboutSection />
       <TestimonialsSection />
+      <PortfolioSection />
       <StatsSection />
       <ContactSection />
       <Footer />

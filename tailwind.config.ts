@@ -142,6 +142,18 @@ export default {
 					'50%': { backgroundPosition: '100% 50%' },
 					'100%': { backgroundPosition: '0% 50%' },
 				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' },
+				},
+				'pulse': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' },
+				},
+				'bounce': {
+					'0%, 100%': { transform: 'translateY(-25%)', animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)' },
+					'50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' },
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -153,10 +165,15 @@ export default {
 				'slide-up': 'slide-up 0.6s ease-out',
 				'fade-in': 'fade-in 0.8s ease-out',
 				'gradient-shift': 'gradient-shift 8s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 10s linear infinite',
+				'float-slow': 'float 10s ease-in-out infinite',
+				'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'bounce-slow': 'bounce 2s infinite',
 			},
 			backgroundImage: {
 				'tech-gradient': 'linear-gradient(135deg, #1EAEDB, #33C3F0, #7F5AF0)',
 				'hero-gradient': 'radial-gradient(circle at center, rgba(30, 174, 219, 0.3), rgba(26, 31, 44, 1) 70%)',
+				'cyberpunk-grid': 'linear-gradient(rgba(30,174,219,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(30,174,219,0.05) 1px, transparent 1px)',
 			},
 			fontFamily: {
 				inter: ['Inter', 'sans-serif'],
