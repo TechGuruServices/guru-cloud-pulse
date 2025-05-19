@@ -48,7 +48,7 @@ const StatItem: React.FC<StatItemProps> = ({ value, label, suffix = '' }) => {
   return (
     <div className="text-center p-6">
       <div className="text-4xl md:text-5xl font-bold mb-2 text-white">
-        <div ref={counterRef} className="inline-block neon-glow">
+        <div ref={counterRef} className="inline-block text-techguru-blue">
           0{suffix}
         </div>
       </div>

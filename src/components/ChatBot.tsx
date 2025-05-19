@@ -10,16 +10,6 @@ const ChatBot: React.FC = () => {
     { text: "Hi, I'm your TechGuru assistant—how can I help you today?", sender: 'bot' }
   ]);
   const [newMessage, setNewMessage] = useState('');
-  const [isPulsing, setIsPulsing] = useState(true);
-
-  useEffect(() => {
-    // Stop pulsing effect after 5 seconds
-    const timer = setTimeout(() => {
-      setIsPulsing(false);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,9 +36,7 @@ const ChatBot: React.FC = () => {
       {/* Chat button - enhanced visibility */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-40 bg-techguru-blue text-white p-4 rounded-full shadow-xl hover:bg-techguru-blue-light transition-all ${
-          isPulsing ? 'animate-neon-pulse' : ''
-        }`}
+        className="fixed bottom-6 right-6 z-40 bg-techguru-blue text-white p-4 rounded-full shadow-lg hover:bg-techguru-blue-light transition-all duration-300"
         aria-label="Open chat"
       >
         <MessageCircle className="h-6 w-6" />
@@ -56,7 +44,7 @@ const ChatBot: React.FC = () => {
 
       {/* Chat widget - improved clarity */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-techguru-purple-dark/95 backdrop-blur-md rounded-lg shadow-2xl border border-techguru-blue/40 flex flex-col animate-fade-in">
+        <div className="fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-techguru-purple-dark/95 backdrop-blur-md rounded-lg shadow-xl border border-techguru-blue/30 flex flex-col animate-fade-in">
           {/* Header */}
           <div className="flex items-center justify-between bg-techguru-blue p-4 rounded-t-lg">
             <div className="flex items-center space-x-2">
