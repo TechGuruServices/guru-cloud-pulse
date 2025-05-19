@@ -43,10 +43,10 @@ const ChatBot: React.FC = () => {
 
   return (
     <>
-      {/* Chat button */}
+      {/* Chat button - enhanced visibility */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-40 bg-techguru-blue text-white p-4 rounded-full shadow-lg hover:bg-techguru-blue-light transition-all ${
+        className={`fixed bottom-6 right-6 z-40 bg-techguru-blue text-white p-4 rounded-full shadow-xl hover:bg-techguru-blue-light transition-all ${
           isPulsing ? 'animate-neon-pulse' : ''
         }`}
         aria-label="Open chat"
@@ -54,9 +54,9 @@ const ChatBot: React.FC = () => {
         <MessageCircle className="h-6 w-6" />
       </button>
 
-      {/* Chat widget */}
+      {/* Chat widget - improved clarity */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-techguru-purple-dark/95 backdrop-blur-md rounded-lg shadow-2xl border border-techguru-blue/30 flex flex-col animate-fade-in">
+        <div className="fixed bottom-6 right-6 z-50 w-80 sm:w-96 bg-techguru-purple-dark/95 backdrop-blur-md rounded-lg shadow-2xl border border-techguru-blue/40 flex flex-col animate-fade-in">
           {/* Header */}
           <div className="flex items-center justify-between bg-techguru-blue p-4 rounded-t-lg">
             <div className="flex items-center space-x-2">
@@ -76,14 +76,14 @@ const ChatBot: React.FC = () => {
             </button>
           </div>
 
-          {/* Chat messages */}
+          {/* Chat messages - improved contrast */}
           <div className="flex-1 p-4 overflow-y-auto max-h-96 space-y-4">
             {messages.map((msg, index) => (
               <div 
                 key={index} 
                 className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                <div className={`max-w-[80%] p-3 rounded-lg ${
+                <div className={`max-w-[80%] p-3 rounded-lg shadow-md ${
                   msg.sender === 'user' 
                     ? 'bg-techguru-blue text-white rounded-br-none' 
                     : 'bg-gray-700 text-white rounded-bl-none'
@@ -94,14 +94,14 @@ const ChatBot: React.FC = () => {
             ))}
           </div>
 
-          {/* Input area */}
+          {/* Input area - improved visibility */}
           <form onSubmit={handleSubmit} className="p-4 border-t border-gray-700">
             <div className="flex gap-2">
               <Input
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
                 placeholder="Type your message..."
-                className="bg-gray-800/60 border-gray-700 text-white"
+                className="bg-gray-800 border-gray-700 text-white"
               />
               <Button type="submit" variant="default" className="bg-techguru-blue hover:bg-techguru-blue-light">
                 Send
